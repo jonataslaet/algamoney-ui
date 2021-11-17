@@ -29,11 +29,12 @@
       <p-table [value]="lancamentos" responsiveLayout="scroll" styleClass="p-datatable-gridlines">
         <ng-template pTemplate="header">
           <tr>
-            <th>Pessoa</th>
-            <th>Descrição</th>
-            <th class="col-header">Vencimento</th>
-            <th class="col-header">Pagamento</th>
-            <th class="col-header">Valor</th>
+            <th class="col-header" style="text-align: center;">Pessoa</th>
+            <th class="col-header" style="text-align: center;">Descrição</th>
+            <th class="col-header" styleClass="col-data">Vencimento</th>
+            <th class="col-header" styleClass="col-data">Pagamento</th>
+            <th class="col-header col-valor">Valor</th>
+            <th class="col-header col-valor"></th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-lancamento>
@@ -42,7 +43,13 @@
             <td>{{lancamento.descricao}}</td>
             <td class="col-data">{{lancamento.dataVencimento}}</td>
             <td style="text-align: center;">{{lancamento.dataPagamento}}</td>
-            <td style="text-align: right;">{{lancamento.valor}}</td>
+            <td class="col-valor-content" styleClass="col-data">
+              <span [style.color]="lancamento.tipo === 'DESPESA' ? 'red' : 'blue'">{{lancamento.valor}} </span>
+            </td>
+            <td class="col-acoes">
+              <a pButton icon="pi pi-pencil"></a>
+              <button pButton icon="pi pi-trash"></button>
+            </td>
           </tr>
         </ng-template>
       </p-table>
