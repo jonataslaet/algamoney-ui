@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import {TooltipModule} from 'primeng/tooltip';
+
 import { AppComponent } from './app.component';
 
 import {InputTextModule} from 'primeng/inputtext';
@@ -17,7 +19,8 @@ import { TableModule } from 'primeng/table';
     AppRoutingModule,
     InputTextModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
